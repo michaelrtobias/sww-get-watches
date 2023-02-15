@@ -1,14 +1,14 @@
-const readItems = require("../dynamodb/getWatches");
+const getItems = require("../dynamodb/getItems");
 
 module.exports = async () => {
   let params = {
     ExpressionAttributeValues: {
       ":draft": {
-        BOOL: "true",
+        BOOL: true,
       },
     },
     FilterExpression: "draft <> :draft",
   };
-  const result = await readItems(params, "watchInventory");
+  const result = await getItems(params, "watchInventory");
   return result;
 };

@@ -1,8 +1,8 @@
-const getInventory = require("./lambda/getInventory");
+const getWatches = require("./lambda/getWatches");
 exports.handler = async (event) => {
   console.log("event", event);
   try {
-    const results = await getInventory();
+    const results = await getWatches();
 
     let response = {
       statusCode: 200,
